@@ -10,9 +10,12 @@ class Note(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
-class User(db.Model, UserMixin):
+class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    notes = db.relationship('Note')
+    name = db.Column(db.String(150))
+    specialization = db.Column(db.String(150))
+    experience = db.Column(db.Integer)
+    location = db.Column(db.String(150))
+    pincode = db.Column(db.String(10))
+    degree = db.Column(db.String(150))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
